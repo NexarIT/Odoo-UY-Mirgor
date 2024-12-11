@@ -1,0 +1,2 @@
+PyPDF2
+-e git+https://bitbucket.org/blueorangegroup/mercadolibre.git#egg=mercadolibre

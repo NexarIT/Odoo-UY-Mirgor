@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+mercadolibre_base_mercadolibre_configuration_user,mercadolibre_base.mercadolibre_configuration.user,model_mercadolibre_configuration,group_mercadolibre_user,1,0,0,0
+mercadolibre_base_mercadolibre_configuration_manager,mercadolibre_base.mercadolibre_configuration.manager,model_mercadolibre_configuration,group_mercadolibre_manager,1,1,1,1

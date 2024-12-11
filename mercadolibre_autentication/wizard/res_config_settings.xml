@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="res_config_settings_mercadolibre_autentication_form">
+            <field name="name">Res config settings mercadolibre autentication form</field>
+            <field name="model">res.config.settings</field>
+		    <field name="inherit_id" ref="mercadolibre_base.res_config_settings_mercadolibre_base_form" />
+            <field name="arch" type="xml">
+                <div name="mercadolibre_base" position="inside">
+                    <h2 name="datos_autenticacion" attrs="{'invisible': [('mercadolibre_configuration_id', '=', False)]}">Autenticación</h2>
+                    <div class="row mt16 o_settings_container" name="autenticacion" attrs="{'invisible': [('mercadolibre_configuration_id', '=', False)]}">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <div>
+                                    <b>Datos de autenticación</b>
+                                </div>
+                                <label for="mercadolibre_client_id" string="Client ID" class="col-lg-4 o_light_label"/>
+                                <field name="mercadolibre_client_id"/>
+                                <label for="mercadolibre_client_secret" string="Client secret" class="col-lg-4 o_light_label"/>
+                                <field name="mercadolibre_client_secret"/>
+                                <label for="mercadolibre_redirect_uri" string="Redirect URI" class="col-lg-4 o_light_label"/>
+                                <field name="mercadolibre_redirect_uri" placeholder="https://server_url/mercadolibre_log_in"/>
+                                <label for="mercadolibre_user_id" string="User ID " class="col-lg-4 o_light_label"/>
+                                <field name="mercadolibre_user_id" attrs="{'required': [('mercadolibre_configuration_id', '!=', False)]}"/>
+                                <label for="mercadolibre_country_id" string="País de la configuración" class="col-lg-4 o_light_label"/>
+                                <field name="mercadolibre_country_id" 
+                                    attrs="{'required': [('mercadolibre_configuration_id', '!=', False)]}"
+                                    options="{'no_open': True, 'no_create': True}"/>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane" attrs="{'invisible': [('mercadolibre_access_token', '!=', False)]}">
+                                <span class="o_form_label">Iniciar sesión</span>
+                                <div class="text-muted">
+                                    Inicie sesión en mercadolibre.
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <button
+                                            name="mercadolibre_log_in"
+                                            string="Iniciar sesión"
+                                            type="object"
+                                            class="oe_link"
+                                            icon="fa-toggle-off"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_setting_right_pane" attrs="{'invisible': [('mercadolibre_access_token', '=', False)]}">
+                                <span class="o_form_label">Cerrar sesión</span>
+                                <div class="text-muted">
+                                    Cierre la sesión de mercadolibre.
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <button
+                                            name="mercadolibre_log_out"
+                                            string="Cerrar sesión"
+                                            type="object"
+                                            class="oe_link"
+                                            icon="fa-toggle-on"
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="mercadolibre_access_token" string="Access token" class="col-lg-4 o_light_label"/>
+                                    <field name="mercadolibre_access_token" colspan="2"/>
+                                    <label for="mercadolibre_refresh_token" string="Refresh token" class="col-lg-4 o_light_label"/>
+                                    <field name="mercadolibre_refresh_token"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </field>
+        </record>
+
+    </data>
+</odoo>
+
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4-->

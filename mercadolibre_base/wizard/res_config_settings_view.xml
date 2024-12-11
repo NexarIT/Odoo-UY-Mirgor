@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="res_config_settings_mercadolibre_base_form">
+            <field name="name">Res config settings mercadolibre base form</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority">50</field>
+		    <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div name="mercadolibre_base" class="app_settings_block"
+                     data-string="Mercadolibre" data-key="mercadolibre_base" string="Mercadolibre">
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <div class="text-muted">
+                                    Elegir la configuración a utilizar.
+                                </div>
+                                <div class="mt16 row">
+                                    <label for="mercadolibre_configuration_id" string="Configuración" class="col-3 col-lg-3 o_light_label"/>
+                                    <field name="mercadolibre_configuration_id" class="oe_inline"/>
+                                </div>
+                            </div>
+                            <div class="o_setting_right_pane" groups="base.group_multi_company">
+                                <div class="text-muted">
+                                    Elegir la empresa de la configuración.
+                                </div>
+                                <div class="mt16 row">
+                                    <label for="mercadolibre_configuration_company_id" string="Empresa" class="col-3 col-lg-3 o_light_label"/>
+                                    <field name="mercadolibre_configuration_company_id" class="oe_inline"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_res_config_settings_mercadolibre" model="ir.actions.act_window">
+            <field name="name">Configuración general</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module': 'mercadolibre_base'}</field>
+        </record>
+
+    </data>
+</odoo>
+
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4-->
