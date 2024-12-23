@@ -116,7 +116,9 @@ class PaymentTransaction(models.Model):
             return res
         processing_values.update({
             'mercadopago_url': self.acquirer_id.mercadopago_get_form_action_url(),
-            'currency': self.currency_id.name,
+            'currency_id': self.acquirer_journal_currency_id.id,
+            'currency': self.acquirer_journal_currency_id.name,
+            'amount': self.amount_acquirer_journal_currency,
         })
         return processing_values
     
